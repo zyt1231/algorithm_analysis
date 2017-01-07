@@ -2,9 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static java.lang.System.out;
-
 
 public class FibonacciSequence {
     /*
@@ -43,9 +41,10 @@ public class FibonacciSequence {
     /*
     Write a method that returns the nth value of Fibonacci sequence.
     */
-    private static Map<Integer, Integer> fibCache = new HashMap<Integer,Integer>();
-    public static int CachedFibN(int n){
-        if(n<0){
+    private static Map<Integer, Integer> fibCache = new HashMap<Integer, Integer>();
+
+    public static int CachedFibN(int n) {
+        if (n < 0) {
             throw new IllegalArgumentException();
         }
         fibCache.put(0, 0);
@@ -53,14 +52,16 @@ public class FibonacciSequence {
         fibCache.put(2, 1);
         return recursiveFibN(n);
     }
-    private static int recursiveFibN(int n){
-        if(fibCache.containsKey(n)){
+
+    private static int recursiveFibN(int n) {
+        if (fibCache.containsKey(n)) {
             return fibCache.get(n);
         }
-        int value = recursiveFibN(n-1) + recursiveFibN(n-2);
+        int value = recursiveFibN(n - 1) + recursiveFibN(n - 2);
         fibCache.put(n, value);
         return value;
     }
+
     public static void main(String[] args) {
         int n = 9;
         out.println(fibonacci(n));
