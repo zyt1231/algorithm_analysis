@@ -1,12 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static java.lang.System.out;
-/*
- * Created by Ting on 1/7/17.
- * Write a method that returns a Fibonacci sequence from 1 to n
- */
+
 
 public class FibonacciSequence {
+    /*
+    Write a method that returns a Fibonacci sequence from 1 to n
+    */
     public static List<Integer> fibonacci(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n must greater than 0.");
@@ -37,8 +40,31 @@ public class FibonacciSequence {
         }
     }
 
+    /*
+    Write a method that returns the nth value of Fibonacci sequence.
+    */
+    private static Map<Integer, Integer> fibCache = new HashMap<Integer,Integer>();
+    public static int CachedFibN(int n){
+        if(n<0){
+            throw new IllegalArgumentException();
+        }
+        fibCache.put(0, 0);
+        fibCache.put(1, 0);
+        fibCache.put(2, 1);
+        return recursiveFibN(n);
+    }
+    private static int recursiveFibN(int n){
+        if(fibCache.containsKey(n)){
+            return fibCache.get(n);
+        }
+        int value = recursiveFibN(n-1) + recursiveFibN(n-2);
+        fibCache.put(n, value);
+        return value;
+    }
     public static void main(String[] args) {
-        out.println(fibonacci(20));
-
+        int n = 9;
+        out.println(fibonacci(n));
+        FibonacciSequence f = new FibonacciSequence();
+        out.println(CachedFibN(n));
     }
 }
