@@ -47,7 +47,7 @@ public class FizzBuzz {
     }
 
     public static void main(String[] args) {
-        System.out.println(SimpleFizzBuzz(100));
+        System.out.println(SimpleFizzBuzz(100)); //println `ln` means line
         System.out.println(AlternativeFizzBuzz(100));
     }
 }
