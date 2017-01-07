@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
  */
 
 public class FizzBuzz {
-    public List<String> SimpleFizzBuzz(int n) {
+    public static List<String> SimpleFizzBuzz(int n) {
         final ArrayList<String> toReturn = new ArrayList<String>();
         for (int i = 1; i <= n; i++) {
             if (i % 15 == 0) {
@@ -18,17 +17,38 @@ public class FizzBuzz {
                 toReturn.add("Buzz");
             } else if (i % 3 == 0) {
                 toReturn.add("Fizz");
+            }else{
+                toReturn.add("");
             }
         }
         return toReturn;
     }
 
-    public void TestSimpleFizzBuzz() {
-
+    public static List<String> AlternativeFizzBuzz(final int n) {
+        final List<String> toReturn = new ArrayList<String>(n);
+        for (int i = 1; i<=n; i++){
+            String word = toWord(15, i,"FizzBuzz");
+            if (word == "") {
+                word =toWord(5, i,"Buzz") + toWord(3, i,"Fizz");;
+            }
+            toReturn.add(word);
+        }
+        return toReturn;
+    }
+    private static String toWord(final int divisor,
+                                 final int value,
+                                 final String word){
+        if (divisor != 0){
+            return value % divisor == 0 ? word : "";
+        }
+        else{
+            return "Argument divisor is 0.";
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println(SimpleFizzBuzz(100));
+        System.out.println(AlternativeFizzBuzz(100));
     }
 }
 
