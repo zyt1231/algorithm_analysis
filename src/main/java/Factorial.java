@@ -1,10 +1,6 @@
 /*
  * Created by Ting on 1/7/17.
  */
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Factorial {
     /*
      Write a factorial implementation that does not use recursion.
