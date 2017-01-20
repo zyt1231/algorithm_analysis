@@ -16,6 +16,7 @@ public class HammingDistance {
         The above arrows point to positions where the corresponding bits are different.
     */
     public static int solution(int x, int y) {
+        /* 为什么32？
         int res = x ^ y;
         int count = 0;
         for (int i = 0; i < 32; i++) {
@@ -25,10 +26,18 @@ public class HammingDistance {
             res >>= 1;
         }
         return count;
+        */
+        int res = 0;
+        int xor = x ^ y;
+        while (xor > 0) {
+            ++res;
+            xor &= (xor - 1); // xor&(xor-1)可以快速移除右边的bit1
+        }
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(1, 4));
+        System.out.println(solution(1, 100));
 
     }
 }
