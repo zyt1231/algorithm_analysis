@@ -21,7 +21,6 @@ public class RansomeNote{
         java.lang.StringBuilder sbMagzine = new java.lang.StringBuilder(magzine);
         for(int i=0; i< ransomeNote.length(); i++){
             char c = ransomeNote.charAt(i);
-            System.out.println(c);
             int index = sbMagzine.toString().indexOf(c);
             if (index>=0){
                 sbMagzine.deleteCharAt(index);
@@ -32,6 +31,6 @@ public class RansomeNote{
         return true;
     }
      public static void main(String []args){
-        System.out.println(canConstruct("aba","ab"));
+        System.out.println(canConstruct("aba","abac"));
      }
 }

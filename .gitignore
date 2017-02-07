@@ -2,3 +2,8 @@
 *.xml
 
 *.iml
+
+.idea/description.html
+
+target/*
+
