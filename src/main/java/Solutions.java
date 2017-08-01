@@ -3,7 +3,18 @@ import java.util.*;
  * @author zhou0013
  */
 public class Solution {
-
+    
+    public boolean isPalindrome_9(int x) {
+        //input :  0 true, 100 false, 2 true, -121 false
+        int rev = 0;
+        if (x<0 || (x!=0 && x%10==0)) return false; 
+        while (x > rev) {
+            rev = rev * 10 + x % 10;
+            x = (x - x % 10) / 10;
+        }
+        return (x == rev || x == rev / 10);
+    }
+    
     public int[] twoSum_1() {
         final int[] nums = {2, 7, 11, 15};
         final int target = 9;
