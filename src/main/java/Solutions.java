@@ -2,7 +2,7 @@ import java.util.*;
 /**
  * @author zhou0013
  */
-public class Solution {
+public class Solutions {
     
     public boolean isPalindrome_9(int x) {
         //input :  0 true, 100 false, 2 true, -121 false
