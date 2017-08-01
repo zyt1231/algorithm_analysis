@@ -1,5 +1,3 @@
-package test;
-
 import java.util.*;
 /**
  * @author zhou0013
