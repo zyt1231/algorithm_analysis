@@ -3,6 +3,18 @@ import java.util.*;
  * @author zhou0013
  */
 public class Solutions {
+    public String longestCommonPrefix_14__1(String[] strs) {
+        //Horisontal scanning
+        if (strs.length == 0) {return "";}
+        String prefix = strs[0];
+        for (int i = 0; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) {return "";}
+            }
+        }
+        return prefix;
+    }    
     
     public boolean isPalindrome_9(int x) {
         //input :  0 true, 100 false, 2 true, -121 false
