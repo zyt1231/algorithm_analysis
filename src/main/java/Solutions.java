@@ -3,6 +3,18 @@ import java.util.*;
  * @author zhou0013
  */
 public class Solutions {
+    public String longestCommonPrefix_12__2(String[] strs) {
+        //Vertical scanning
+        if(strs == null || strs.length == 0) return "";
+        for(int i = 0; i<strs[0].length(); i++){ //string.length() vs array.length
+            char c = strs[0].charAt(i);
+            for(int j = 0; j< strs.length; j++){
+                if(strs[j].charAt(i)!=c || j==strs[i].length()) return strs[0].substring(0, i);
+            }
+        }
+        return strs[0];
+    }
+    
     public String longestCommonPrefix_14__1(String[] strs) {
         //Horisontal scanning
         if (strs.length == 0) {return "";}
