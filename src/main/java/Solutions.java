@@ -3,6 +3,29 @@ import java.util.*;
  * @author zhou0013
  */
 public class Solutions {
+    public boolean isValidParentheses_20(String s) {
+        // Input "]})", "()[{}]"
+        Stack<Character> stack = new Stack<Character>();
+        HashMap<Character, Character> map = new HashMap<Character, Character>() {
+            {
+                put('(', ')');
+                put('[', ']');
+                put('{', '}');
+            }
+        };
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            }
+            if (c == ')' || c == ']' || c == '}') {
+                if (stack.isEmpty() || c != map.get(stack.pop())) {// when stack is empty and input )}] 
+                    return false; 
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+    
     public String longestCommonPrefix_12__2(String[] strs) {
         //Vertical scanning
         if(strs == null || strs.length == 0) return "";
