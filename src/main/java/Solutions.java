@@ -3,6 +3,26 @@ import java.util.*;
  * @author zhou0013
  */
 public class Solutions {
+//-------------------------------------------------------------------------------------------------------------------------------
+    public class ListNode {
+        //Definition for singly-linked list.
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+    public ListNode mergeTwoLists_21(ListNode l1, ListNode l2) {
+        if(l1==null) return l2;
+        if(l2==null) return l1; 
+        if(l1.val < l2.val){
+            l1.next = mergeTwoLists_21(l1.next, l2);
+            return l1;
+        }
+        else{
+            l2.next = mergeTwoLists_21(l1, l2.next);
+            return l2;
+        }
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isValidParentheses_20(String s) {
         // Input "]})", "()[{}]"
         Stack<Character> stack = new Stack<Character>();
@@ -25,7 +45,7 @@ public class Solutions {
         }
         return stack.isEmpty();
     }
-    
+//-------------------------------------------------------------------------------------------------------------------------------
     public String longestCommonPrefix_12__2(String[] strs) {
         //Vertical scanning
         if(strs == null || strs.length == 0) return "";
@@ -37,7 +57,7 @@ public class Solutions {
         }
         return strs[0];
     }
-    
+//-------------------------------------------------------------------------------------------------------------------------------
     public String longestCommonPrefix_14__1(String[] strs) {
         //Horisontal scanning
         if (strs.length == 0) {return "";}
@@ -50,7 +70,7 @@ public class Solutions {
         }
         return prefix;
     }    
-    
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isPalindrome_9(int x) {
         //input :  0 true, 100 false, 2 true, -121 false
         int rev = 0;
@@ -61,7 +81,7 @@ public class Solutions {
         }
         return (x == rev || x == rev / 10);
     }
-    
+//-------------------------------------------------------------------------------------------------------------------------------
     public int[] twoSum_1() {
         final int[] nums = {2, 7, 11, 15};
         final int target = 9;
@@ -76,7 +96,7 @@ public class Solutions {
         }
         return new int[]{};
     }
-
+//-------------------------------------------------------------------------------------------------------------------------------
     public int reverse_7(int x) {
     //Java reverse an int value - Principles
     //Modding (%) the input int by 10 will extract off the rightmost digit. example: (1234 % 10) = 4.
