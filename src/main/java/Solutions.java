@@ -4,6 +4,17 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int removeElement_27(int[] nums, int val) {
+        int j=0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]!=val) {
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+               return j;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int removeDuplicates_26(int[] nums) {
         int j=1;
         for(int i=1; i<nums.length; i++){
