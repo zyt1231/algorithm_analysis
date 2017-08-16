@@ -4,6 +4,17 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int strStr_28(String haystack, String needle) {
+        //needle and haystack, substring and string
+        for(int i=0; ; i++){
+            for(int j=0; ; j++){
+                if(j==needle.length()) return i;
+                if(i+j==haystack.length()) return -1; 
+                if(needle.charAt(j)!= haystack.charAt(i+j)) break; 
+            }
+        }
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int removeElement_27(int[] nums, int val) {
         int j=0;
         for(int i=0; i<nums.length; i++){
