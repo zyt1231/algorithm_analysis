@@ -4,6 +4,19 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int maxSubArray_53(int[] nums) {
+        //DP solution
+        if(nums.length==1) return nums[0];
+        int[] m = new int[nums.length];
+        m[0] = nums[0];
+        int max=nums[0];
+        for(int i=1; i<nums.length; i++){
+            m[i] = m[i-1]>0?nums[i] + m[i-1]:nums[i];
+            max = Math.max(m[i],max);
+        }
+        return max;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int searchInsert_35(int[] nums, int target) {
       if(nums.length==0) return 0;
             int low=0;
