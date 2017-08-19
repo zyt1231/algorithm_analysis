@@ -4,6 +4,10 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int lengthOfLastWord_58(String s) {
+        return s.trim().length() - s.trim().lastIndexOf(" ") -1;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int maxSubArray_53(int[] nums) {
         //DP solution
         if(nums.length==1) return nums[0];
