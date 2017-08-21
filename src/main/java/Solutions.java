@@ -4,6 +4,17 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int maxProfit_121(int[] prices) {
+        if(prices.length<2) return 0;
+        int min=Integer.MAX_VALUE;
+        int maxProfit=0;
+        for(int i=0; i<prices.length;i++){
+            min = Math.min(min,prices[i]);
+            maxProfit = Math.max(maxProfit,prices[i]-min);
+        }
+        return maxProfit;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int climbStairs_70(int n) {
         //dp
         if (n == 1) {
