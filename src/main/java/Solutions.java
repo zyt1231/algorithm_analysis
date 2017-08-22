@@ -4,6 +4,25 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int[] plusOne_66(int[] digits) {
+        if(digits==null || digits.length==0) return new int[0];
+        int carry=1; //carry can be interger other than 1
+        for(int i=digits.length-1; i>=0; i--){
+            int sum = digits[i]+ carry;
+            if(sum>=10)carry=1;
+            else carry=0;
+            digits[i] = sum%10;
+        }
+        if (carry==1){
+            int[] result = new int[digits.length+1];
+            System.arraycopy(digits,0,result,1,digits.length);
+            result[0]=1; 
+            return result;
+        }else{
+            return digits;
+        }  
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int maxProfit_121(int[] prices) {
         if(prices.length<2) return 0;
         int min=Integer.MAX_VALUE;
