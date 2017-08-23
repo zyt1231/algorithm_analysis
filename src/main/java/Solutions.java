@@ -4,6 +4,24 @@ import java.util.*;
  */
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int mySqrt_69(int x) {
+        if(x<0) return x; //if target <0 return it self
+        if(x==0) return 0; 
+        int l=0;
+        int r=x;
+        int mid=0;
+        while(l<r-1){
+            mid=(l+r)/2;
+            if(x/mid==mid) return mid;
+            if(x/mid<mid){
+                r=mid;
+            }else{
+                l=mid;
+            }
+        }
+        return mid; 
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public String addBinary_67(String a, String b) {
         StringBuilder sb = new StringBuilder();
         int i = a.length()-1;
