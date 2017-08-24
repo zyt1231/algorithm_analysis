@@ -2,7 +2,25 @@ import java.util.*;
 /**
  * @author zhou0013
  */
+//-------------------------------------------------------------------------------------------------------------------------------
 public class Solutions {
+    public int mySqrt_69(int x) {
+        //text input 0,1,3
+        if(x<=1) return x;
+        int l=0;
+        int r=x;
+        int mid=0;
+        while(l<=r){
+            mid=(l+r)/2;
+            if(x/mid==mid) return mid;
+            if(x/mid<mid){
+                r=mid-1;
+            }else{
+                l=mid+1;
+            }
+        }
+        return r; 
+    }
 //-------------------------------------------------------------------------------------------------------------------------------
     public int mySqrt_69(int x) {
         if(x<0) return x; //if target <0 return it self
