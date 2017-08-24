@@ -2,6 +2,12 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public boolean isSameTree_100(TreeNode p, TreeNode q) {
+        if(p==null && q==null) return true;
+        if(p==null || q==null) return false;
+        return (p.val==q.val) && (isSameTree(p.left,q.left) && isSameTree(p.right, q.right));
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public void merge_88(int[] nums1, int m, int[] nums2, int n) {
         //直观思路显然是双指针i, j同时扫描A, B，选min(A[i], B[j])作为下一个元素插入。但是只能利用A后面的空间来插入，这样就很不方便了。
         //反向思路，merge后的数组一共有m+n个数。i, j从A, B尾部扫描，选max(A[i], B[j])插入从m+n起的尾部.
