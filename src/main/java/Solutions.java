@@ -2,6 +2,15 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public boolean isSymmetric_101(TreeNode root) {
+        return isSymmetricHelp(root, root);
+    }
+    public boolean isSymmetricHelp(TreeNode left, TreeNode right){
+        if(left==null && right==null) return true;
+        if(left==null || right==null) return false;
+        return (left.val==right.val) && isSymmetricHelp(left.left,right.right) && isSymmetricHelp(left.right, right.left);
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isSameTree_100(TreeNode p, TreeNode q) {
         if(p==null && q==null) return true;
         if(p==null || q==null) return false;
