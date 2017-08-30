@@ -2,6 +2,11 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int maxDepth_104(TreeNode root) {
+        if (root==null) return 0;
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isSymmetric_101(TreeNode root) {
         return isSymmetricHelp(root, root);
     }
