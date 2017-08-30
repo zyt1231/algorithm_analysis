@@ -2,6 +2,25 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public List<List<Integer>> levelOrderBottom_107(TreeNode root) {
+        //use BFS method
+        List<List<Integer>> toReturn = new LinkedList<List<Integer>>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        if(root==null) return toReturn;
+        queue.add(root);
+        while(!queue.isEmpty()){
+            List<Integer> subList = new LinkedList<Integer>();
+            int levelNum=queue.size();
+            for(int i=0;i<levelNum;i++){
+                if(queue.peek().left!=null) queue.offer(queue.peek().left);
+                if(queue.peek().right!=null) queue.offer(queue.peek().right);
+                subList.add(queue.poll().val);
+            }
+            toReturn.add(0,subList);
+        }
+        return toReturn;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int maxDepth_104(TreeNode root) {
         if (root==null) return 0;
         return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
