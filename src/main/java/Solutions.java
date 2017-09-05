@@ -2,6 +2,40 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     *     int val;
+     *     ListNode next;
+     *     ListNode(int x) { val = x; }
+     * }
+     */
+    ListNode n;
+    public TreeNode sortedListToBST_109(ListNode head) {
+        if(head==null) return null;
+        n=head;
+        ListNode p = head;
+        int len=0;
+        while(p!=null){
+            len++;
+            p=p.next;
+        }
+        return sortedListToBSTHelper(0, len-1);
+    }
+    public TreeNode sortedListToBSTHelper(int start, int end){
+        if(start>end) return null;
+        int mid = (start + end)/2;
+        //left->mid->right 
+        TreeNode left = sortedListToBSTHelper(start, mid-1);
+        TreeNode root = new TreeNode(n.val);
+        n=n.next;
+        TreeNode right = sortedListToBSTHelper(mid+1, end);
+        
+        root.left = left;
+        root.right = right;
+        return root;
+    } 
+//-------------------------------------------------------------------------------------------------------------------------------
     public TreeNode sortedArrayToBST_108(int[] nums) {
         if(nums.length==0) return null;
         return SortedArrayToBSTHelper(nums,0,nums.length-1);
