@@ -2,6 +2,20 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public TreeNode sortedArrayToBST_108(int[] nums) {
+        if(nums.length==0) return null;
+        return SortedArrayToBSTHelper(nums,0,nums.length-1);
+    }
+    public TreeNode SortedArrayToBSTHelper(int[] nums, int start, int end){
+        if(start>end) return null;
+        int mid=(start+end)/2;
+        TreeNode head=new TreeNode(nums[mid]);
+        head.left=SortedArrayToBSTHelper(nums,start,mid-1);
+        head.right=SortedArrayToBSTHelper(nums,mid+1,end);
+        return head;
+        
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public List<List<Integer>> levelOrderBottom_107(TreeNode root) {
         //use BFS method
         List<List<Integer>> toReturn = new LinkedList<List<Integer>>();
