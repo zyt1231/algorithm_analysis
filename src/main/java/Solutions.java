@@ -2,6 +2,17 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public boolean isBalanced_110(TreeNode root) {
+        if(root==null) return true;
+        int leftH = getHeight(root.left);
+        int rightH = getHeight(root.right);
+        return Math.abs(leftH-rightH)<=1 && isBalanced(root.left) && isBalanced(root.right);
+    }
+    public int getHeight(TreeNode root){
+        if(root==null) return 0;
+        return Math.max(getHeight(root.left),getHeight(root.right)) +1;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     /**
      * Definition for singly-linked list.
      * public class ListNode {
