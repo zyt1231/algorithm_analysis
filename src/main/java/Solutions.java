@@ -2,6 +2,28 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int minDepth_111(TreeNode root) {
+        //use bfs method
+        if(root==null) return 0;
+        LinkedList<TreeNode> nodes = new LinkedList<TreeNode>();
+        int depth = 1;
+        TreeNode magic= new TreeNode(0);
+        nodes.offer(root);
+        nodes.offer(magic);
+        while(!nodes.isEmpty()){
+            TreeNode tmp = nodes.poll();
+            if(tmp.equals(magic) && !nodes.isEmpty()){
+                depth++;
+                nodes.offer(magic);
+                continue;
+            }
+            if(tmp.left==null && tmp.right==null) return depth;
+            if(tmp.left!=null) nodes.offer(tmp.left);
+            if(tmp.right!=null) nodes.offer(tmp.right);
+        }
+        return depth; 
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isBalanced_110(TreeNode root) {
         if(root==null) return true;
         int leftH = getHeight(root.left);
