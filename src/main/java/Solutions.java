@@ -1,6 +1,21 @@
 import java.util.*;
-
-public class Solutions {
+//-------------------------------------------------------------------------------------------------------------------------------
+    public List<Integer> getRow_119(int rowIndex) {
+        //get row for pascal triangle
+        //generate rows line by line, for each line from back to front to save space. 
+        //set the list value for a index instead of using another list for previous value. 
+        //inplace make it O(k) extra space. 
+        List<Integer> row = new ArrayList<Integer>();
+        if(rowIndex<0) return row;
+        row.add(1);
+        for(int i=1;i<=rowIndex;i++){
+            for(int j=row.size()-1;j>0;j--){
+                row.set(j,row.get(j)+row.get(j-1));
+            }
+            row.add(1);
+        }
+        return row;
+    }
 //-------------------------------------------------------------------------------------------------------------------------------
     public List<List<Integer>> generate_118(int numRows) {
         //generate Pascal's Triangle
