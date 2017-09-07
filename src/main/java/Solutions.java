@@ -2,6 +2,35 @@ import java.util.*;
 
 public class Solutions {
 //-------------------------------------------------------------------------------------------------------------------------------
+    public boolean hasPathSum_112(TreeNode root, int sum) {
+        //recursion 
+        if(root==null) return false;
+        if(root.val==sum && root.left==null && root.right==null) return true;
+        return hasPathSum(root.left,sum-root.val) || hasPathSum(root.right, sum-root.val);
+    }
+    public boolean hasPathSum_112(TreeNode root, int sum) {
+        //use queue
+        if(root==null) return false; 
+        LinkedList<TreeNode> nodeQ = new LinkedList<TreeNode>();
+        LinkedList<Integer> sumQ = new LinkedList<Integer>();
+        nodeQ.offer(root);
+        sumQ.offer(root.val);
+        while(!nodeQ.isEmpty()){
+            TreeNote cNode = nodeQ.poll();
+            Integer cSum = sumQ.poll();
+            if(cNode.left==null && cNode.right==null && cSum+cNode.val==sum) return true;
+            if(cNode.left!=null){
+                nodeQ.offer(cNode.left);
+                sumQ.offer(cSum+cNode.left.val);
+            }
+            if(cNode.right!=null){
+                nodeQ.offer(cNode.right);
+                sumQ.offer(cSum+cNode.right.value);
+            }
+        }
+        return false;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int minDepth_111(TreeNode root) {
         //use bfs method
         if(root==null) return 0;
