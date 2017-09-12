@@ -1,5 +1,29 @@
 import java.util.*;
 //-------------------------------------------------------------------------------------------------------------------------------
+    public boolean isPalindrome_125(String s) {
+        if(s.length()==0) return true;
+        int ih=0;
+        int it=s.length()-1;
+        char ch;
+        char ct;
+        while(ih<=it){
+            ch=s.charAt(ih);
+            ct=s.charAt(it);
+            if(!Character.isLetterOrDigit(ch)){
+                ih++;
+            }else if(!Character.isLetterOrDigit(ct)){
+                it--;
+            }else{
+                if(Character.toLowerCase(ch)!=Character.toLowerCase(ct)) return false;
+                else{
+                    ih++;
+                    it--;
+                }
+            }
+        }
+        return true;  
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int maxProfit_122(int[] prices) {
         int max=0;
         for(int i=1; i<prices.length;i++){
