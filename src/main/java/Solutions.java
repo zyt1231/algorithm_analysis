@@ -1,5 +1,22 @@
 import java.util.*;
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int singleNumber_136(int[] nums) {
+      if(nums.length==0) throw new IllegalArgumentException();
+            List<Integer> l = new ArrayList<Integer>();
+            HashMap<Integer, Integer> table = new HashMap<Integer, Integer>();
+            for (int num : nums) {
+                if (table.containsKey(num)) {
+                    table.remove(num);
+                } else {
+                    table.put(num, num);
+                }
+
+            }
+            Iterator iter = table.keySet().iterator();
+            if(iter.hasNext())  return (int)(iter.next());
+            else throw new IllegalArgumentException("Not valid input. ");
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public boolean isPalindrome_125(String s) {
         if(s.length()==0) return true;
         int ih=0;
