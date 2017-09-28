@@ -1,5 +1,18 @@
 import java.util.*;
 public class Solution{
+    public int majorityElement(int[] nums) {
+        int ct = 0;
+        int num=nums[0];
+        for(int i=0; i<nums.length;i++){
+            if(num==nums[i]) ct++; 
+            else ct--;
+            if(ct<0) {
+                num=nums[i];
+                ct=0;
+            }
+        }
+        return num;
+    }
 //-------------------------------------------------------------------------------------------------------------------------------
 // class MinStack {
 //     /** initialize your data structure here. */
