@@ -1,5 +1,14 @@
 import java.util.*;
 public class Solution{
+//-------------------------------------------------------------------------------------------------------------------------------
+    public int trailingZeroes_172(int n) {
+        //count 5 and 2s in n, since 2 is smaller than 5, so only count 5s
+        if (n<5) return 0;
+        int toReturn=0;
+        toReturn=n/5 + trailingZeroes(n/5);
+        return toReturn;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int titleToNumber_171(String s) {
         int result=0;
         for(int i=0; i<s.length(); i++){
