@@ -1,5 +1,13 @@
 import java.util.*;
 public class Solution{
+    public int titleToNumber_171(String s) {
+        int result=0;
+        for(int i=0; i<s.length(); i++){
+            result=result*26 + (s.charAt(i)-'A' +1);
+        }
+        return result;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int majorityElement(int[] nums) {
         int ct = 0;
         int num=nums[0];
