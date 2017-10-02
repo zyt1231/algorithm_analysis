@@ -1,5 +1,24 @@
 import java.util.*;
 public class Solution{
+    public void rotate_189(int[] nums, int k) {
+        //BruceForce time limit exceeded
+        // for(int j=0;j<k;j++){
+        //     int tmp = nums[nums.length-1];
+        //     for(int i=nums.length-1; i>0;i--){
+        //         nums[i]=nums[i-1];
+        //     }
+        //     nums[0] = tmp;
+        // }
+        
+        //use extra array
+        int[] t=new int[nums.length];
+        for(int i=0;i<nums.length;i++){
+            t[(i+k)%nums.length]=nums[i];
+        }
+        for(int i=0;i<nums.length;i++){
+            nums[i]=t[i];
+        }
+    }
 //-------------------------------------------------------------------------------------------------------------------------------
     public int trailingZeroes_172(int n) {
         //count 5 and 2s in n, since 2 is smaller than 5, so only count 5s
