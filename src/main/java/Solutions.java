@@ -1,6 +1,28 @@
 import java.util.*;
 public class Solution{
 //-------------------------------------------------------------------------------------------------------------------------------
+    public String multiply_43(String num1, String num2) {
+        int l1=num1.length();
+        int l2=num2.length();
+        int[] d=new int[l1+l2];
+        
+        for(int i=l1-1; i>=0;i--){
+            for(int j=l2-1;j>=0;j--){
+                int mulResult = d[i+j+1] + (num1.charAt(i)-'0') * (num2.charAt(j)-'0');
+                int mod=mulResult%10;
+                int carry=mulResult/10;
+                d[i+j+1]=mod;
+                d[i+j] +=carry;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i : d){
+            if(!(sb.length() == 0 && i == 0))//prevent "00"
+            sb.append(i);
+        }
+        return sb.length()==0?"0":sb.toString();
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int rob_198(int[] nums) {
         //dp
         if(nums==null || nums.length==0) return 0;
