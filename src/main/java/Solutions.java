@@ -1,6 +1,29 @@
 import java.util.*;
 public class Solution{
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int numIslands_200(char[][] grid) {
+        int count=0;
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[0].length;j++){
+                if(grid[i][j]=='1'){
+                    count++;
+                    merge(grid,i,j);
+                }
+            }
+        }
+        return count;
+    }
+    public void merge(char[][] grid, int i, int j){
+        if(i<0||i>=grid.length||j<0||j>=grid[0].length||grid[i][j]!='1'){
+            return;
+        }
+        grid[i][j]='X';
+        merge(grid,i+1,j);
+        merge(grid,i-1,j);
+        merge(grid,i,j+1);
+        merge(grid,i,j-1);
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public String multiply_43(String num1, String num2) {
         int l1=num1.length();
         int l2=num2.length();
