@@ -1,6 +1,20 @@
 import java.util.*;
 public class Solution{
 //-------------------------------------------------------------------------------------------------------------------------------
+    public int countPrimes_204(int n) {
+        boolean[] notPrime = new boolean[n]; //use notPrime instead of prime because default false for each element in the array
+        int count = 0;
+        for (int i = 2; i < n; i++) {
+            if (notPrime[i] == false) {
+                count++;
+                for (int j = 2; i*j < n; j++) {
+                    notPrime[i*j] = true;
+                }
+            }
+        }
+        return count;
+    }
+//-------------------------------------------------------------------------------------------------------------------------------
     public int numIslands_200(char[][] grid) {
         int count=0;
         for(int i=0;i<grid.length;i++){
